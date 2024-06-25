@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Effective Mobile Test Task</string>
+
+    <string name="bottom_nav_avia_tickets">Aвиабилеты</string>
+    <string name="bottom_nav_hotels">Отели</string>
+    <string name="bottom_nav_in_short">Короче</string>
+    <string name="bottom_nav_subscriptions">Подписки</string>
+    <string name="bottom_nav_profile">Профиль</string>
 </resources>
