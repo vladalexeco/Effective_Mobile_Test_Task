@@ -19,4 +19,13 @@
     <color name="red">#FF5E5E</color>
     <color name="orange">#F36E36</color>
 
+    <color name="base_text_color">#D9D9D9</color>
+    <color name="external_card">#2F3035</color>
+    <color name="internal_card">#3E3F43</color>
+    <color name="background_color_switch_view">#242529</color>
+
+    <color name="default_button_color">#2F3035</color>
+    <color name="thumb_color_on">#91B1DE</color>
+
+
 </resources>
