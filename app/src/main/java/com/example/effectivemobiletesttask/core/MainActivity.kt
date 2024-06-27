@@ -37,7 +37,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.searchHotelsFragment,
                 R.id.searchRouteFragment,
                 R.id.subscriptionsFragment,
+                R.id.allTicketsFragment,
                 R.id.profileFragment -> binding.bottomNavigationView.isVisible = true
+
                 else -> binding.bottomNavigationView.isVisible = false
             }
         }
