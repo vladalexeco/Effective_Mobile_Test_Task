@@ -6,4 +6,13 @@
     <string name="bottom_nav_in_short">Короче</string>
     <string name="bottom_nav_subscriptions">Подписки</string>
     <string name="bottom_nav_profile">Профиль</string>
+    <string name="search_cheap_tickets">Поиск дешевых авиабилетов</string>
+    <string name="back_to">обратно</string>
+    <string name="from">от</string>
+    <string name="ruble">₽</string>
+    <string name="musically_fly_away">Музыкально отлететь</string>
+    <string name="show_all_places">Показать все места</string>
+    <string name="show_all">Показать все</string>
+    <string name="show_all_tickets">Посмотреть все билеты</string>
+    <string name="subscribe_to_price">Подписка на цену</string>
 </resources>
