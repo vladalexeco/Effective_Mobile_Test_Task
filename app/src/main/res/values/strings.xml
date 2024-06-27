@@ -15,4 +15,9 @@
     <string name="show_all">Показать все</string>
     <string name="show_all_tickets">Посмотреть все билеты</string>
     <string name="subscribe_to_price">Подписка на цену</string>
+    <string name="filters">Фильтры</string>
+    <string name="transfers">Пересадки</string>
+    <string name="without_transfers">Без пересадок</string>
+    <string name="only_baggage">Только с багажом</string>
+    <string name="ready">Готово</string>
 </resources>

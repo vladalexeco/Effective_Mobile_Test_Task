@@ -1,18 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/BasicScreenStyle"
     tools:context=".presentation.tickets.fragments.AllTicketsFragment">
 
-    <TextView
-        android:id="@+id/allTickets"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="All Tickets"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal"
+        android:background="@color/background_color_switch_view">
+
+        <ImageView
+            android:id="@+id/allTicketsLeftArrowImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/left_arrow"
+            android:backgroundTint="@color/blue"
+            android:layout_gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginVertical="8dp">
+
+            <TextView
+                android:id="@+id/allTicketsDepartureArrivalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Москва - Сочи"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/allTicketsDepartureDateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23 февраля, "
+                    android:textColor="@color/grey_6"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:id="@+id/allTicketsAmauntOfPassengersTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1 пассажир"
+                    android:textColor="@color/grey_6"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginHorizontal="16dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_view_all_tickets_labeled"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="203dp"
+            android:layout_height="37dp"
+            app:cardCornerRadius="50dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:backgroundTint="@color/blue">
+
+            <LinearLayout
+                android:id="@+id/allTicketsFilterButtonLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/settings"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Фильтр"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="4dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/allTicketsChartButtonLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/chart"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="График цен"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="4dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</LinearLayout>
