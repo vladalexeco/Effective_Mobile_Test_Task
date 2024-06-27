@@ -1,396 +1,862 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/BasicScreenStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    style="@style/BasicScreenStyle"
     tools:context=".presentation.tickets.fragments.SearchTicketsFragment">
 
-    <TextView
-        android:layout_width="172dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="60dp"
-        android:text="@string/search_cheap_tickets"
-        android:textAlignment="center"
-        android:textColor="@color/base_text_color"
-        android:textSize="22sp"
-        android:visibility="gone"/>
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="122dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/external_card"
-        app:cardCornerRadius="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/saarchTicketsHeaderTextView"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:text="@string/search_cheap_tickets"
+            android:textAlignment="center"
+            android:textColor="@color/base_text_color"
+            android:textSize="22sp"
+            android:visibility="gone"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="122dp"
             android:layout_marginHorizontal="16dp"
-            android:layout_marginVertical="16dp"
-            android:backgroundTint="@color/internal_card"
+            android:layout_marginTop="36dp"
+            android:backgroundTint="@color/external_card"
+            app:cardCornerRadius="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:backgroundTint="@color/internal_card"
+                app:cardCornerRadius="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp">
+
+                        <ImageView
+                            android:id="@+id/searchTicketsSearchMainImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/search"
+                            android:backgroundTint="@color/layout_black"
+                            android:layout_gravity="center_vertical"
+                            />
+
+                        <ImageView
+                            android:id="@+id/searchTicketsLeftArrowMainImageView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:background="@drawable/left_arrow"/>
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp">
+
+                            <EditText
+                                android:id="@+id/searchTicketsDepartureMainEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Откуда - Минск"
+                                android:textSize="16sp"
+                                android:textColorHint="@color/grey_6"
+                                android:background="@color/internal_card"
+                                android:textColor="@color/white"/>
+
+                            <ImageView
+                                android:id="@+id/searchTicketsDepartureMainIconImageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/vertical_arrows"
+                                android:layout_gravity="center_vertical|end"
+                                android:contentDescription="@null"
+                                android:visibility="visible"/>
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/grey_5"/>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp">
+
+                            <EditText
+                                android:id="@+id/searchTicketsArrivalMainEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Куда - Турция"
+                                android:textSize="16sp"
+                                android:textColorHint="@color/grey_6"
+                                android:textColor="@color/white"
+                                android:background="@color/internal_card"/>
+
+                            <ImageView
+                                android:id="@+id/searchTicketsArrivalMainIconImageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cross"
+                                android:layout_gravity="center_vertical|end"
+                                android:contentDescription="@null"
+                                android:visibility="visible"/>
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
+
+        <HorizontalScrollView
+            android:id="@+id/searchTicketsExtraParametersBarHorizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="13dp"
+            android:fillViewport="true"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/searchTicketsBackToExtraCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:backgroundTint="@color/external_card"
+                    app:cardCornerRadius="50dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/plus"
+                            android:backgroundTint="@color/grey_7"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="1dp"
+                            android:text="@string/back_to"
+                            android:textSize="14sp"
+                            android:textColor="@color/grey_7"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/searchTicketsChangeBackToDateExtraCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:backgroundTint="@color/external_card"
+                    android:layout_marginStart="10dp"
+                    app:cardCornerRadius="50dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="11dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="1dp"
+                            android:text="24 фев"
+                            android:textSize="14sp"
+                            android:textColor="@color/grey_7"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="1dp"
+                            android:text=", сб"
+                            android:textSize="14sp"
+                            android:textColor="@color/grey_5"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/searchTicketsChangeAmountPersonsExtraCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/external_card"
+                    app:cardCornerRadius="50dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/profile_min"
+                            android:backgroundTint="@color/grey_5"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="1dp"
+                            android:text="1, эконом"
+                            android:textSize="14sp"
+                            android:textColor="@color/grey_7"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/searchTicketsFilterExtraCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/external_card"
+                    app:cardCornerRadius="50dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/settings"
+                            android:backgroundTint="@color/grey_7"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginBottom="1dp"
+                            android:text="@string/back_to"
+                            android:textSize="14sp"
+                            android:textColor="@color/grey_7"/>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/searchTicketsMusicallyFlyAwayHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/musically_fly_away"
+            android:textColor="@color/white"
+            android:textSize="22dp"
+            android:visibility="gone"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="32dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/searchTicketsMusicallyFlyAwayRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:visibility="gone"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_view_musically_fly_away"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/searchTicketsShowAllPlacesAppCompatButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/default_button_shape"
+            android:text="@string/show_all_places"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchTicketsStraightRacesCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@color/grey_1"
+            android:layout_marginTop="12dp"
             app:cardCornerRadius="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ImageView
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/search"
-                    android:backgroundTint="@color/layout_black"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="8dp"
-                    />
+                    android:text="Прямые рейсы"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp" />
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/searchTicketsStraightRacesRecycleView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginHorizontal="16dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:layout_marginTop="8dp"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/item_view_flights" />
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp">
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@color/internal_card"
-                            android:textColor="@color/white"/>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/vertical_arrows"
-                            android:layout_gravity="center_vertical|end"
-                            android:contentDescription="@null"
-                            android:visibility="visible"/>
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="@color/grey_5"/>
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp">
-
-                        <EditText
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:background="@color/internal_card"/>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/cross"
-                            android:layout_gravity="center_vertical|end"
-                            android:contentDescription="@null"
-                            android:visibility="visible"/>
-                    </FrameLayout>
-
-
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/show_all"
+                    android:textColor="@color/blue"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="16dp" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="13dp"
-        android:fillViewport="true"
-        android:visibility="visible">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:backgroundTint="@color/external_card"
-                app:cardCornerRadius="50dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/plus"
-                        android:backgroundTint="@color/grey_7"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/back_to"
-                        android:textSize="14sp"
-                        android:textColor="@color/grey_7"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:backgroundTint="@color/external_card"
-                android:layout_marginStart="10dp"
-                app:cardCornerRadius="50dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="11dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginBottom="1dp"
-                        android:text="24 фев"
-                        android:textSize="14sp"
-                        android:textColor="@color/grey_7"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginBottom="1dp"
-                        android:text=", сб"
-                        android:textSize="14sp"
-                        android:textColor="@color/grey_5"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:backgroundTint="@color/external_card"
-                app:cardCornerRadius="50dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/profile_min"
-                        android:backgroundTint="@color/grey_5"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="2dp"
-                        android:layout_marginBottom="1dp"
-                        android:text="1, эконом"
-                        android:textSize="14sp"
-                        android:textColor="@color/grey_7"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:backgroundTint="@color/external_card"
-                app:cardCornerRadius="50dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/settings"
-                        android:backgroundTint="@color/grey_7"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="1dp"
-                        android:text="@string/back_to"
-                        android:textSize="14sp"
-                        android:textColor="@color/grey_7"/>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-    </HorizontalScrollView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/musically_fly_away"
-        android:textColor="@color/white"
-        android:textSize="22dp"
-        android:visibility="gone"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="32dp"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginHorizontal="16dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:visibility="gone"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_view_musically_fly_away"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="18dp"
-        android:background="@drawable/default_button_shape"
-        android:text="@string/show_all_places"
-        android:textAllCaps="false"
-        android:visibility="gone"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:backgroundTint="@color/grey_1"
-        android:layout_marginTop="12dp"
-        app:cardCornerRadius="16dp">
-
-        <LinearLayout
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/searchTicketsShowAllTicketsAppCompatButton"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:background="@drawable/default_button_shape"
+            android:layout_marginHorizontal="16dp"
+            android:backgroundTint="@color/blue"
+            android:text="@string/show_all_tickets"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:layout_marginTop="23dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Прямые рейсы"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchTicketsSubscriptionOnPriceCardView"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            app:cardCornerRadius="8dp"
+            android:backgroundTint="@color/background_color_switch_view"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="8dp"
-                tools:itemCount="3"
-                tools:listitem="@layout/item_view_flights" />
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/show_all"
-                android:textColor="@color/blue"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="11dp"
-                android:layout_marginBottom="16dp" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/subscriptions"
+                    android:backgroundTint="@color/blue"/>
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subscribe_to_price"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"/>
 
-    </androidx.cardview.widget.CardView>
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:thumbTint="@color/switch_thumb_selector"
+                    app:trackTint="@color/switch_track_selector" />
 
-    <androidx.appcompat.widget.AppCompatButton
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/searchTicketsBottomSheet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/default_button_shape"
-        android:layout_marginHorizontal="16dp"
-        android:backgroundTint="@color/blue"
-        android:text="@string/show_all_tickets"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:layout_marginTop="23dp" />
+        android:layout_height="match_parent"
+        android:background="@drawable/bottom_sheet_rounded_corners"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="600dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        app:cardCornerRadius="8dp"
-        android:backgroundTint="@color/background_color_switch_view"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp">
-
-        <LinearLayout
+        <View
+            android:layout_width="38dp"
+            android:layout_height="5dp"
+            android:background="@drawable/rounded_line"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"/>
+        
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginTop="24dp"
+            android:layout_height="96dp"
+            app:cardCornerRadius="16dp"
+            android:backgroundTint="@color/external_card">
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/subscriptions"
-                android:backgroundTint="@color/blue"/>
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/subscribe_to_price"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.SwitchCompat
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/departure"/>
+
+                        <EditText
+                            android:id="@+id/searchTicketsSecondaryDepartureEditText"
+                            android:layout_width="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_height="wrap_content"
+                            android:hint="Откуда - Минск"
+                            android:textColorHint="@color/grey_6"
+                            android:textSize="16sp"
+                            android:background="@color/external_card"
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/searchTicketsSecondaryDepartureCloseIconImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cross"
+                        android:backgroundTint="@color/grey_7"
+                        android:layout_gravity="end"/>
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="8dp"
+                    android:background="@color/grey_5"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/search"/>
+
+                        <EditText
+                            android:id="@+id/searchTicketsSecondaryArrivalEditText"
+                            android:layout_width="match_parent"
+                            android:layout_marginStart="8dp"
+                            android:hint="Куда - Турция"
+                            android:textColorHint="@color/grey_6"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:background="@color/external_card"
+                            android:textColor="@color/white"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/searchTicketsSecondaryArrivalCloseIconImageView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cross"
+                        android:backgroundTint="@color/grey_7"
+                        android:layout_gravity="end"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <LinearLayout
+                android:id="@+id/searchTicketsDifficultRouteLinearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:thumbTint="@color/switch_thumb_selector"
-                app:trackTint="@color/switch_track_selector" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/searchTicketsAnywhereLinearLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside">
 
-        </LinearLayout>
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.cardview.widget.CardView>
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/icon_square_shape"
+                        android:backgroundTint="@color/green" />
 
-</LinearLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/route"
+                        android:contentDescription="@null" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Сложный\nмаршрут"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/searchTicketsHotTicketsLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/searchTicketsHolidaysLinearLayout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/icon_square_shape" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/hot_tickets"
+                        android:contentDescription="@null" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Горячие\nбилеты"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/searchTicketsHolidaysLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/searchTicketsHotTicketsLinearLayout"
+                app:layout_constraintStart_toEndOf="@id/searchTicketsAnywhereLinearLayout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/icon_square_shape"
+                        android:backgroundTint="@color/dark_blue" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/holidays"
+                        android:contentDescription="@null" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Выходные"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/searchTicketsAnywhereLinearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@id/searchTicketsHolidaysLinearLayout"
+                app:layout_constraintStart_toEndOf="@id/searchTicketsDifficultRouteLinearLayout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/icon_square_shape"
+                        android:backgroundTint="@color/blue" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/anywhere"
+                        android:contentDescription="@null" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Куда угодно"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/grey_2"
+            app:cardCornerRadius="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="16dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/searchTicketsPopularDestinationStambul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/stambul_dep"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Стамбул"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Популярное направление"
+                            android:textColor="@color/grey_5"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_5"/>
+
+                <LinearLayout
+                    android:id="@+id/searchTicketsPopularDestinationSochi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingVertical="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/sochi_dep"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Сочи"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Популярное направление"
+                            android:textColor="@color/grey_5"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_5"/>
+
+                <LinearLayout
+                    android:id="@+id/searchTicketsPopularDestinationPhucket"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:paddingVertical="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/phucket_dep"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Пхукет"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Популярное направление"
+                            android:textColor="@color/grey_5"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_5"/>
 
 
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
