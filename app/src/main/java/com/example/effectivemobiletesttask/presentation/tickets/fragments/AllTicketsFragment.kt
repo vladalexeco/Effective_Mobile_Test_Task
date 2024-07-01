@@ -36,6 +36,12 @@ class AllTicketsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val destination = arguments?.getString(SearchTicketsFragment.DESTINATION_KEY)
+        val arrival = arguments?.getString(SearchTicketsFragment.ARRIVAL_KEY)
+        val route = "$destination - $arrival"
+
+        binding.allTicketsDepartureArrivalTextView.text = route
+
         allFlyOfferAdapter = AllFlyOfferAdapter(
             onItemViewClick = { flyOffer ->
                 Toast.makeText(requireContext(), "Fly Offer Id ${flyOffer.id}", Toast.LENGTH_SHORT).show()

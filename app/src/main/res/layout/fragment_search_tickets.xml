@@ -148,7 +148,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="13dp"
             android:fillViewport="true"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -165,17 +165,19 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:layout_marginHorizontal="10dp"
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/searchTicketsBackDateImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/plus"
                             android:backgroundTint="@color/grey_7"/>
 
                         <TextView
+                            android:id="@+id/searchTicketsBackDateTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -204,6 +206,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/searchTicketsCurrentDateTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
@@ -213,6 +216,7 @@
                             android:textColor="@color/grey_7"/>
 
                         <TextView
+                            android:id="@+id/searchTicketsCurrentDayTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"

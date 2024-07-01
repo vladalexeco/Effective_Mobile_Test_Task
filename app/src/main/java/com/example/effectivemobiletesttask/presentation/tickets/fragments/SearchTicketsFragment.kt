@@ -1,6 +1,7 @@
 package com.example.effectivemobiletesttask.presentation.tickets.fragments
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -25,6 +26,10 @@ import com.example.effectivemobiletesttask.presentation.tickets.viewmodels.Searc
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class SearchTicketsFragment : Fragment() {
 
@@ -48,6 +53,9 @@ class SearchTicketsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.searchTicketsBottomSheet)
+
+        binding.searchTicketsCurrentDateTextView.text = getCurrentDate()
+        binding.searchTicketsCurrentDayTextView.text = ", ${getCurrentDayOfWeek()}"
 
         musicalFlyOffersAdapter = MusicalFlyOfferAdapter(
             onItemViewClick = { musicalFlyOffer ->
@@ -85,7 +93,11 @@ class SearchTicketsFragment : Fragment() {
             if (binding.searchTicketsDepartureMainEditText.text.isNotEmpty() &&
                 binding.searchTicketsArrivalMainEditText.text.isNotEmpty()
             ) {
-                findNavController().navigate(R.id.action_searchTicketsFragment_to_allTicketsFragment)
+                val bundle = Bundle()
+                bundle.putString(DESTINATION_KEY, binding.searchTicketsDepartureMainEditText.text.toString())
+                bundle.putString(ARRIVAL_KEY, binding.searchTicketsArrivalMainEditText.text.toString())
+
+                findNavController().navigate(R.id.action_searchTicketsFragment_to_allTicketsFragment, bundle)
             }
         }
 
@@ -104,8 +116,17 @@ class SearchTicketsFragment : Fragment() {
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 viewModel.onEvent(searchTicketsEvent = SearchTicketsScreenEvent.GetBestFlyOffersEvent)
                 bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+
+                binding.searchTicketsDepartureMainEditText.text =
+                    binding.searchTicketsSecondaryDepartureEditText.text
+
+                binding.searchTicketsArrivalMainEditText.text =
+                    binding.searchTicketsSecondaryArrivalEditText.text
+
                 true
-            } else false
+            } else {
+                false
+            }
         }
 
         binding.searchTicketsSecondaryDepartureCloseIconImageView.setOnClickListener {
@@ -201,6 +222,18 @@ class SearchTicketsFragment : Fragment() {
         binding.searchTicketsPopularDestinationPhucket.setOnClickListener {
             binding.searchTicketsSecondaryArrivalEditText.setText("Пхукет")
         }
+
+        binding.searchTicketsChangeBackToDateExtraCardView.setOnClickListener {
+            showDatePickerDialogDepartureDate()
+        }
+
+        binding.searchTicketsBackToExtraCardView.setOnClickListener {
+            showDatePickerDialogBackDate()
+        }
+
+        binding.searchTicketsFilterExtraCardView.setOnClickListener {
+            findNavController().navigate(R.id.action_searchTicketsFragment_to_filterTicketsFragment)
+        }
         //
 
         viewModel.onEvent(searchTicketsEvent = SearchTicketsScreenEvent.GetMusicalFlyOffersEvent)
@@ -240,5 +273,45 @@ class SearchTicketsFragment : Fragment() {
 
     private fun getMusicalFlyOffers(newList: List<MusicalFlyOffer>) {
         musicalFlyOffersAdapter?.setFlyOffers(newList)
+    }
+
+    private fun getCurrentDate(): String {
+        val dateFormat = SimpleDateFormat("dd MMM", Locale("ru"))
+        return dateFormat.format(Date())
+    }
+
+    private fun getCurrentDayOfWeek(): String {
+        val dateFormat = SimpleDateFormat("EE", Locale("ru"))
+        return dateFormat.format(Date())
+    }
+
+    private fun showDatePickerDialogDepartureDate() {
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
+            calendar.set(year, month, dayOfMonth)
+            val dateFormat = SimpleDateFormat("dd MMMM", Locale("ru")).format(calendar.time)
+            val dayFormat = SimpleDateFormat("EE", Locale("ru")).format(calendar.time)
+            binding.searchTicketsCurrentDateTextView.text = dateFormat
+            binding.searchTicketsCurrentDayTextView.text = ", $dayFormat"
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+
+        datePickerDialog.show()
+    }
+
+    private fun showDatePickerDialogBackDate() {
+        val calendar = Calendar.getInstance()
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
+            calendar.set(year, month, dayOfMonth)
+            val selectedDate = SimpleDateFormat("dd MMMM, EE", Locale("ru")).format(calendar.time)
+            binding.searchTicketsBackDateTextView.text = selectedDate
+            binding.searchTicketsBackDateImageView.visibility = View.GONE
+        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
+
+        datePickerDialog.show()
+    }
+
+    companion object {
+        const val DESTINATION_KEY = "destination"
+        const val ARRIVAL_KEY = "arrival"
     }
 }
