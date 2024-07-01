@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="125dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        android:background="@drawable/frame_layout_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/itemViewLabeledAllTicketsTopLabelCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        android:backgroundTint="@color/blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/itemViewLabeledAllTicketsTopLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="2dp"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="Самый удобный"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsPriceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6990"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/itemViewLabeledAllTicketsTopLabelCardView"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ruble"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintTop_toTopOf="@id/itemViewLabeledAllTicketsPriceTextView"
+        app:layout_constraintStart_toEndOf="@id/itemViewLabeledAllTicketsPriceTextView"/>
+
+    <ImageView
+        android:id="@+id/itemViewLabeledAllTicketsRoundImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round"
+        android:backgroundTint="@color/red"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/itemViewLabeledAllTicketsPriceTextView"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsDepartureTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="03:15"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/itemViewLabeledAllTicketsPriceTextView"
+        app:layout_constraintStart_toEndOf="@id/itemViewLabeledAllTicketsRoundImageView"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsDashTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textSize="14sp"
+        android:textColor="@color/grey_6"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="@id/itemViewLabeledAllTicketsDepartureTimeTextView"
+        app:layout_constraintStart_toEndOf="@id/itemViewLabeledAllTicketsDepartureTimeTextView"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsArrivalTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="07:10"
+        android:textSize="14sp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@+id/itemViewLabeledAllTicketsDashTextView"
+        app:layout_constraintStart_toEndOf="@+id/itemViewLabeledAllTicketsDashTextView"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsTravelTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/white"
+        android:text="3.5 ч"
+        app:layout_constraintTop_toTopOf="@id/itemViewLabeledAllTicketsArrivalTimeTextView"
+        app:layout_constraintStart_toEndOf="@id/itemViewLabeledAllTicketsArrivalTimeTextView"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsSlashTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textSize="14sp"
+        android:layout_marginStart="4dp"
+        android:textColor="@color/grey_6"
+        app:layout_constraintTop_toTopOf="@+id/itemViewLabeledAllTicketsTravelTimeTextView"
+        app:layout_constraintStart_toEndOf="@+id/itemViewLabeledAllTicketsTravelTimeTextView"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsWithoutTransfersTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Без пересадок"
+        android:textSize="14sp"
+        android:layout_marginStart="6dp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@+id/itemViewLabeledAllTicketsSlashTextView"
+        app:layout_constraintStart_toEndOf="@+id/itemViewLabeledAllTicketsSlashTextView"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsDepartureCodeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VKO"
+        android:textColor="@color/grey_6"
+        app:layout_constraintTop_toBottomOf="@id/itemViewLabeledAllTicketsDepartureTimeTextView"
+        app:layout_constraintStart_toStartOf="@id/itemViewLabeledAllTicketsDepartureTimeTextView"/>
+
+    <TextView
+        android:id="@+id/itemViewLabeledAllTicketsArrivalCodeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AER"
+        android:textColor="@color/grey_6"
+        app:layout_constraintTop_toTopOf="@id/itemViewLabeledAllTicketsDepartureCodeTextView"
+        app:layout_constraintStart_toStartOf="@id/itemViewLabeledAllTicketsArrivalTimeTextView"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

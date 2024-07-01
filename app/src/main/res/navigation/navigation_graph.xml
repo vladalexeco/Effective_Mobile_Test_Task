@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/searchTicketsFragment">
+
+    <fragment
+        android:id="@+id/searchTicketsFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.SearchTicketsFragment"
+        android:label="fragment_search_tickets"
+        tools:layout="@layout/fragment_search_tickets" >
+        <action
+            android:id="@+id/action_searchTicketsFragment_to_allTicketsFragment"
+            app:destination="@id/allTicketsFragment" />
+        <action
+            android:id="@+id/action_searchTicketsFragment_to_difficultRouteFragment"
+            app:destination="@id/difficultRouteFragment" />
+        <action
+            android:id="@+id/action_searchTicketsFragment_to_filterTicketsFragment"
+            app:destination="@id/filterTicketsFragment" />
+        <action
+            android:id="@+id/action_searchTicketsFragment_to_holidaysFragment"
+            app:destination="@id/holidaysFragment" />
+        <action
+            android:id="@+id/action_searchTicketsFragment_to_hotTicketsFragment"
+            app:destination="@id/hotTicketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchHotelsFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.hotels.fragments.SearchHotelsFragment"
+        android:label="fragment_search_hotels"
+        tools:layout="@layout/fragment_search_hotels" />
+    <fragment
+        android:id="@+id/searchRouteFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.route.fragments.SearchRouteFragment"
+        android:label="fragment_search_route"
+        tools:layout="@layout/fragment_search_route" />
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.subscriptions.fragments.SubscriptionsFragment"
+        android:label="fragment_subscriptions"
+        tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.profile.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/allTicketsFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.AllTicketsFragment"
+        android:label="fragment_all_tickets"
+        tools:layout="@layout/fragment_all_tickets" >
+        <action
+            android:id="@+id/action_allTicketsFragment_to_filterTicketsFragment"
+            app:destination="@id/filterTicketsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/difficultRouteFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.DifficultRouteFragment"
+        android:label="fragment_difficult_route"
+        tools:layout="@layout/fragment_difficult_route" />
+    <fragment
+        android:id="@+id/filterTicketsFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.FilterTicketsFragment"
+        android:label="fragment_filter_tickets"
+        tools:layout="@layout/fragment_filter_tickets" />
+    <fragment
+        android:id="@+id/holidaysFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.HolidaysFragment"
+        android:label="fragment_holidays"
+        tools:layout="@layout/fragment_holidays" />
+    <fragment
+        android:id="@+id/hotTicketsFragment"
+        android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.HotTicketsFragment"
+        android:label="fragment_hot_tickets"
+        tools:layout="@layout/fragment_hot_tickets" />
+</navigation>

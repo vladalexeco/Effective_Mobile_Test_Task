@@ -5,5 +5,10 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.EffectiveMobileTestTask" parent="Base.Theme.EffectiveMobileTestTask" />
+    <style name="Theme.EffectiveMobileTestTask" parent="Base.Theme.EffectiveMobileTestTask">
+    </style>
+
+    <style name="BasicScreenStyle">
+        <item name="android:background">@color/layout_black</item>
+    </style>
 </resources>
