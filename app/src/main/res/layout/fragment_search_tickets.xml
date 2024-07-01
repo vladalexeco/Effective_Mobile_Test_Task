@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/saarchTicketsHeaderTextView"
+            android:id="@+id/searchTicketsHeaderTextView"
             android:layout_width="172dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -24,7 +24,7 @@
             android:textAlignment="center"
             android:textColor="@color/base_text_color"
             android:textSize="22sp"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                                 android:id="@+id/searchTicketsDepartureMainEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Откуда - Минск"
+                                android:hint="Откуда - Москва"
                                 android:textSize="16sp"
                                 android:textColorHint="@color/grey_6"
                                 android:background="@color/internal_card"
@@ -100,7 +100,7 @@
                                 android:background="@drawable/vertical_arrows"
                                 android:layout_gravity="center_vertical|end"
                                 android:contentDescription="@null"
-                                android:visibility="visible"/>
+                                android:visibility="gone"/>
                         </FrameLayout>
 
                         <View
@@ -117,11 +117,11 @@
                                 android:id="@+id/searchTicketsArrivalMainEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="@color/internal_card"
                                 android:hint="Куда - Турция"
-                                android:textSize="16sp"
-                                android:textColorHint="@color/grey_6"
                                 android:textColor="@color/white"
-                                android:background="@color/internal_card"/>
+                                android:textColorHint="@color/grey_6"
+                                android:textSize="16sp" />
 
                             <ImageView
                                 android:id="@+id/searchTicketsArrivalMainIconImageView"
@@ -130,7 +130,7 @@
                                 android:background="@drawable/cross"
                                 android:layout_gravity="center_vertical|end"
                                 android:contentDescription="@null"
-                                android:visibility="visible"/>
+                                android:visibility="gone"/>
                         </FrameLayout>
 
                     </LinearLayout>
@@ -148,7 +148,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="13dp"
             android:fillViewport="true"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -305,7 +305,7 @@
             android:text="@string/musically_fly_away"
             android:textColor="@color/white"
             android:textSize="22dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_marginStart="15dp"
             android:layout_marginTop="32dp"/>
 
@@ -317,7 +317,7 @@
             android:layout_marginHorizontal="16dp"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:visibility="gone"
+            android:visibility="visible"
             tools:itemCount="4"
             tools:listitem="@layout/item_view_musically_fly_away"/>
 
@@ -330,7 +330,7 @@
             android:background="@drawable/default_button_shape"
             android:text="@string/show_all_places"
             android:textAllCaps="false"
-            android:visibility="gone"
+            android:visibility="visible"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -341,6 +341,7 @@
             android:layout_marginHorizontal="16dp"
             android:backgroundTint="@color/grey_1"
             android:layout_marginTop="12dp"
+            android:visibility="gone"
             app:cardCornerRadius="16dp">
 
             <LinearLayout
@@ -388,6 +389,7 @@
             android:backgroundTint="@color/blue"
             android:text="@string/show_all_tickets"
             android:textAllCaps="false"
+            android:visibility="gone"
             android:textColor="@color/white"
             android:layout_marginTop="23dp" />
 
@@ -396,6 +398,7 @@
             android:layout_width="match_parent"
             android:layout_height="51dp"
             app:cardCornerRadius="8dp"
+            android:visibility="gone"
             android:backgroundTint="@color/background_color_switch_view"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="24dp">
@@ -444,22 +447,24 @@
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="30dp"
+        app:behavior_peekHeight="10dp"
+        app:layout_anchor="@+id/searchTicketsBottomSheet"
+        app:layout_anchorGravity="center"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <View
             android:layout_width="38dp"
             android:layout_height="5dp"
-            android:background="@drawable/rounded_line"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:layout_gravity="center_horizontal"/>
-        
+            android:background="@drawable/rounded_line" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_marginTop="24dp"
             android:layout_height="96dp"
-            app:cardCornerRadius="16dp"
-            android:backgroundTint="@color/external_card">
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/external_card"
+            app:cardCornerRadius="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -480,18 +485,18 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/departure"/>
+                            android:background="@drawable/departure" />
 
                         <EditText
                             android:id="@+id/searchTicketsSecondaryDepartureEditText"
                             android:layout_width="match_parent"
-                            android:layout_marginStart="8dp"
                             android:layout_height="wrap_content"
-                            android:hint="Откуда - Минск"
-                            android:textColorHint="@color/grey_6"
-                            android:textSize="16sp"
+                            android:layout_marginStart="8dp"
                             android:background="@color/external_card"
-                            android:textColor="@color/white"/>
+                            android:hint="Откуда - Москва"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/grey_6"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -499,9 +504,10 @@
                         android:id="@+id/searchTicketsSecondaryDepartureCloseIconImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="end"
                         android:background="@drawable/cross"
                         android:backgroundTint="@color/grey_7"
-                        android:layout_gravity="end"/>
+                        android:visibility="gone" />
 
                 </FrameLayout>
 
@@ -509,7 +515,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginVertical="8dp"
-                    android:background="@color/grey_5"/>
+                    android:background="@color/grey_5" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -523,18 +529,20 @@
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/search"/>
+                            android:background="@drawable/search" />
 
                         <EditText
                             android:id="@+id/searchTicketsSecondaryArrivalEditText"
                             android:layout_width="match_parent"
-                            android:layout_marginStart="8dp"
-                            android:hint="Куда - Турция"
-                            android:textColorHint="@color/grey_6"
                             android:layout_height="wrap_content"
-                            android:textSize="16sp"
+                            android:layout_marginStart="8dp"
                             android:background="@color/external_card"
-                            android:textColor="@color/white"/>
+                            android:hint="Куда - Турция"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/grey_6"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -542,9 +550,10 @@
                         android:id="@+id/searchTicketsSecondaryArrivalCloseIconImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="end"
                         android:background="@drawable/cross"
                         android:backgroundTint="@color/grey_7"
-                        android:layout_gravity="end"/>
+                        android:visibility="gone" />
 
                 </FrameLayout>
 
@@ -564,9 +573,9 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@+id/searchTicketsAnywhereLinearLayout"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_chainStyle="spread_inside">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <FrameLayout
                     android:layout_width="wrap_content"
@@ -737,14 +746,14 @@
                     android:id="@+id/searchTicketsPopularDestinationStambul"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:contentDescription="@null"
-                        android:src="@drawable/stambul_dep"/>
+                        android:src="@drawable/stambul_dep" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -757,34 +766,34 @@
                             android:layout_height="wrap_content"
                             android:text="Стамбул"
                             android:textColor="@color/white"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Популярное направление"
-                            android:textColor="@color/grey_5"/>
+                            android:textColor="@color/grey_5" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/grey_5"/>
+                    android:background="@color/grey_5" />
 
                 <LinearLayout
                     android:id="@+id/searchTicketsPopularDestinationSochi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:paddingVertical="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:contentDescription="@null"
-                        android:src="@drawable/sochi_dep"/>
+                        android:src="@drawable/sochi_dep" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -797,34 +806,34 @@
                             android:layout_height="wrap_content"
                             android:text="Сочи"
                             android:textColor="@color/white"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Популярное направление"
-                            android:textColor="@color/grey_5"/>
+                            android:textColor="@color/grey_5" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/grey_5"/>
+                    android:background="@color/grey_5" />
 
                 <LinearLayout
                     android:id="@+id/searchTicketsPopularDestinationPhucket"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:paddingVertical="8dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingVertical="8dp">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:contentDescription="@null"
-                        android:src="@drawable/phucket_dep"/>
+                        android:src="@drawable/phucket_dep" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -837,20 +846,20 @@
                             android:layout_height="wrap_content"
                             android:text="Пхукет"
                             android:textColor="@color/white"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Популярное направление"
-                            android:textColor="@color/grey_5"/>
+                            android:textColor="@color/grey_5" />
                     </LinearLayout>
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/grey_5"/>
+                    android:background="@color/grey_5" />
 
 
             </LinearLayout>
