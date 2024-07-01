@@ -101,6 +101,7 @@ class SearchTicketsFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putString(DESTINATION_KEY, binding.searchTicketsDepartureMainEditText.text.toString())
                 bundle.putString(ARRIVAL_KEY, binding.searchTicketsArrivalMainEditText.text.toString())
+                bundle.putString(DEPARTURE_DATE_KEY, binding.searchTicketsCurrentDateTextView.text.toString())
 
                 findNavController().navigate(R.id.action_searchTicketsFragment_to_allTicketsFragment, bundle)
             }
@@ -242,7 +243,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsDepartureMainEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
@@ -251,7 +252,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsArrivalMainEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
@@ -260,7 +261,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsSecondaryDepartureEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
@@ -269,7 +270,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsSecondaryArrivalEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
@@ -368,5 +369,6 @@ class SearchTicketsFragment : Fragment() {
         const val DESTINATION_KEY = "destination"
         const val ARRIVAL_KEY = "arrival"
         const val DATA_STORAGE_KEY = "data_storage_key"
+        const val DEPARTURE_DATE_KEY = "departure date"
     }
 }

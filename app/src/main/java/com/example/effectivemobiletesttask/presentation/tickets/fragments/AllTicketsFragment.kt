@@ -44,6 +44,9 @@ class AllTicketsFragment : Fragment() {
 
         binding.allTicketsDepartureArrivalTextView.text = route
 
+        val destinationDate = arguments?.getString(SearchTicketsFragment.DEPARTURE_DATE_KEY)
+        binding.allTicketsDepartureDateTextView.text = destinationDate
+
         allFlyOfferAdapter = AllFlyOfferAdapter(
             onItemViewClick = { flyOffer ->
                 Toast.makeText(requireContext(), "Fly Offer Id ${flyOffer.id}", Toast.LENGTH_SHORT).show()
