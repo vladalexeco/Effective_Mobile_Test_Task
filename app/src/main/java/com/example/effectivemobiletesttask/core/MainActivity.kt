@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        val string = getString(R.string.bottom_nav_avia_tickets)
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.containerView) as NavHostFragment
         val navController = navHostFragment.navController
@@ -37,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.searchHotelsFragment,
                 R.id.searchRouteFragment,
                 R.id.subscriptionsFragment,
-                R.id.allTicketsFragment,
                 R.id.profileFragment -> binding.bottomNavigationView.isVisible = true
 
                 else -> binding.bottomNavigationView.isVisible = false
