@@ -1,9 +1,10 @@
 # Effective Mobile Test Task
 
 Тестовое приложение для организации Effective Mobile
+
 ## Ссылка на apk файл
 
-https://drive.google.com/file/d/1uHBtUtFtKz0bWG1bo6iYNiAEKes_xsIe/view?usp=sharing
+https://drive.google.com/file/d/1Y9itm-PANxakfbEbZ_neja3Qeu-vkuCV/view?usp=sharing
 
 # Стек применяемых технологий
 - Kotlin
