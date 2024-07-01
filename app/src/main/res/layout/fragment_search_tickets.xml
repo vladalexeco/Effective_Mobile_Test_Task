@@ -87,11 +87,11 @@
                                 android:id="@+id/searchTicketsDepartureMainEditText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Откуда - Москва"
-                                android:textSize="16sp"
-                                android:textColorHint="@color/grey_6"
                                 android:background="@color/internal_card"
-                                android:textColor="@color/white"/>
+                                android:hint="@string/from_moscow_name"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/grey_6"
+                                android:textSize="16sp" />
 
                             <ImageView
                                 android:id="@+id/searchTicketsDepartureMainIconImageView"
@@ -118,7 +118,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/internal_card"
-                                android:hint="Куда - Турция"
+                                android:hint="@string/to_turkey_name"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/grey_6"
                                 android:textSize="16sp" />
@@ -211,7 +211,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
                             android:layout_marginBottom="1dp"
-                            android:text="24 фев"
                             android:textSize="14sp"
                             android:textColor="@color/grey_7"/>
 
@@ -221,7 +220,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="2dp"
                             android:layout_marginBottom="1dp"
-                            android:text=", сб"
                             android:textSize="14sp"
                             android:textColor="@color/grey_5"/>
 
@@ -256,7 +254,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="2dp"
                             android:layout_marginBottom="1dp"
-                            android:text="1, эконом"
+                            android:text="@string/econom_name"
                             android:textSize="14sp"
                             android:textColor="@color/grey_7"/>
 
@@ -290,7 +288,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginBottom="1dp"
-                            android:text="@string/back_to"
+                            android:text="@string/filters_button_name"
                             android:textSize="14sp"
                             android:textColor="@color/grey_7"/>
 
@@ -308,7 +306,7 @@
             android:layout_height="wrap_content"
             android:text="@string/musically_fly_away"
             android:textColor="@color/white"
-            android:textSize="22dp"
+            android:textSize="22sp"
             android:visibility="visible"
             android:layout_marginStart="15dp"
             android:layout_marginTop="32dp"/>
@@ -356,7 +354,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Прямые рейсы"
+                    android:text="@string/straight_routes_name"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:layout_marginTop="16dp"
@@ -451,7 +449,7 @@
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="10dp"
+        app:behavior_peekHeight="0dp"
         app:layout_anchor="@+id/searchTicketsBottomSheet"
         app:layout_anchorGravity="center"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
@@ -497,7 +495,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:background="@color/external_card"
-                            android:hint="Откуда - Москва"
+                            android:hint="@string/from_moscow_name"
                             android:textColor="@color/white"
                             android:textColorHint="@color/grey_6"
                             android:textSize="16sp" />
@@ -541,7 +539,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:background="@color/external_card"
-                            android:hint="Куда - Турция"
+                            android:hint="@string/to_turkey_name"
                             android:imeOptions="actionDone"
                             android:inputType="text"
                             android:textColor="@color/white"
@@ -605,7 +603,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Сложный\nмаршрут"
+                    android:text="@string/difficult_route_name"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -644,7 +642,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Горячие\nбилеты"
+                    android:text="@string/hot_tickets_name"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -684,7 +682,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Выходные"
+                    android:text="@string/holidays_name"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -724,7 +722,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Куда угодно"
+                    android:text="@string/anywhere_name"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -768,14 +766,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Стамбул"
+                            android:text="@string/stambul_name"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Популярное направление"
+                            android:text="@string/straigh_popular_name"
                             android:textColor="@color/grey_5" />
                     </LinearLayout>
                 </LinearLayout>
@@ -808,14 +806,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Сочи"
+                            android:text="@string/sochi_name"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Популярное направление"
+                            android:text="@string/straigh_popular_name"
                             android:textColor="@color/grey_5" />
                     </LinearLayout>
                 </LinearLayout>
@@ -848,14 +846,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Пхукет"
+                            android:text="@string/phucket_name"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Популярное направление"
+                            android:text="@string/straigh_popular_name"
                             android:textColor="@color/grey_5" />
                     </LinearLayout>
                 </LinearLayout>

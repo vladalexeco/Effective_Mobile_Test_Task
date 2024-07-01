@@ -10,7 +10,9 @@ val presentationModule = module {
     viewModel<SearchTicketsViewModel> {
         SearchTicketsViewModel(
             getMusicalFlyOffersUseCase = get(),
-            getBestFlyOffersUseCase = get()
+            getBestFlyOffersUseCase = get(),
+            getDepartureDataFromStorageUseCase = get(),
+            saveDepartureDataToStorageUseCase = get()
         )
     }
 

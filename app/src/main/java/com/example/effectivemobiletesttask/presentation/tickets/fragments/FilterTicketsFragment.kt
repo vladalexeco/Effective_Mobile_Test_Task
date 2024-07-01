@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.effectivemobiletesttask.databinding.FragmentFilterTicketsBinding
 
 class FilterTicketsFragment : Fragment() {
@@ -19,5 +20,13 @@ class FilterTicketsFragment : Fragment() {
     ): View {
         _binding = FragmentFilterTicketsBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.filterTicketsCloseIconImageView.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 }

@@ -1,9 +1,13 @@
 package com.example.effectivemobiletesttask.core.di.tickets
 
+import com.example.data.api.DataStorageRepositoryImpl
 import com.example.data.api.FlyOffersRepositoryImpl
 import com.example.data.network.FlyOffersApi
 import com.example.data.network.NetworkFlyOffersClient
 import com.example.data.network.NetworkFlyOffersClientImpl
+import com.example.data.storage.DataStorageSource
+import com.example.data.storage.DataStorageSourceImpl
+import com.example.domain.api.DataStorageRepository
 import com.example.domain.api.FlyOffersRepository
 import com.example.effectivemobiletesttask.core.util.BASE_URL
 import okhttp3.OkHttpClient
@@ -29,5 +33,13 @@ val dataModule = module {
 
     single<FlyOffersRepository> {
         FlyOffersRepositoryImpl(networkFlyOffersClient = get())
+    }
+
+    single<DataStorageSource> {
+        DataStorageSourceImpl(context = androidContext())
+    }
+
+    single<DataStorageRepository> {
+        DataStorageRepositoryImpl(dataStorageSource = get())
     }
 }
