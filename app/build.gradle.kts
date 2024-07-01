@@ -75,12 +75,6 @@ dependencies {
     //coroutines
     implementation(libs.kotlinx.coroutines.android)
 
-    //room
-    ksp(libs.androidx.room.compiler)
-    annotationProcessor(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-
     //test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

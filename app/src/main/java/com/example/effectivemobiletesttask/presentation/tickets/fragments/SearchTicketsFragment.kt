@@ -242,7 +242,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsDepartureMainEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
@@ -251,7 +251,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsArrivalMainEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
@@ -260,7 +260,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsSecondaryDepartureEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
@@ -269,7 +269,7 @@ class SearchTicketsFragment : Fragment() {
 
         binding.searchTicketsSecondaryArrivalEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
             for (i in start until end) {
-                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                if (!source[i].toString().matches("[\\p{InCyrillic} -]+".toRegex())) {
                     return@InputFilter ""
                 }
             }
