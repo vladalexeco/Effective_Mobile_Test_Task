@@ -20,4 +20,17 @@
     <string name="without_transfers">Без пересадок</string>
     <string name="only_baggage">Только с багажом</string>
     <string name="ready">Готово</string>
+    <string name="filters_button_name">фильтры</string>
+    <string name="from_moscow_name">Откуда - Москва</string>
+    <string name="to_turkey_name">Куда - Турция</string>
+    <string name="econom_name">1, эконом</string>
+    <string name="straight_routes_name">Прямые рейсы</string>
+    <string name="difficult_route_name">Сложный\nмаршрут</string>
+    <string name="hot_tickets_name">Горячие\nбилеты</string>
+    <string name="holidays_name">Выходные</string>
+    <string name="anywhere_name">Куда угодно</string>
+    <string name="straigh_popular_name">Популярное направление</string>
+    <string name="phucket_name">Пхукет</string>
+    <string name="sochi_name">Сочи</string>
+    <string name="stambul_name">Стамбул</string>
 </resources>

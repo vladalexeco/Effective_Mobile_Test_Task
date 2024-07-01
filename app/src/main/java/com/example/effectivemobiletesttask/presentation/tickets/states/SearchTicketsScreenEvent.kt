@@ -4,5 +4,6 @@ sealed class SearchTicketsScreenEvent {
 
     data object GetMusicalFlyOffersEvent: SearchTicketsScreenEvent()
     data object GetBestFlyOffersEvent: SearchTicketsScreenEvent()
-    data class DepartureMainEditTextOnTextChangedEvent(val text: String) : SearchTicketsScreenEvent()
+    data class GetDataFromStorageEvent(val key: String) : SearchTicketsScreenEvent()
+    data class SaveDataToStorageEvent(val key: String, val value: String) : SearchTicketsScreenEvent()
 }

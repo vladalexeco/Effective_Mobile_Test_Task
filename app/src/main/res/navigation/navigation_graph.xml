@@ -50,7 +50,11 @@
         android:id="@+id/allTicketsFragment"
         android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.AllTicketsFragment"
         android:label="fragment_all_tickets"
-        tools:layout="@layout/fragment_all_tickets" />
+        tools:layout="@layout/fragment_all_tickets" >
+        <action
+            android:id="@+id/action_allTicketsFragment_to_filterTicketsFragment"
+            app:destination="@id/filterTicketsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/difficultRouteFragment"
         android:name="com.example.effectivemobiletesttask.presentation.tickets.fragments.DifficultRouteFragment"

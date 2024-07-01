@@ -4,7 +4,9 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.usecase.GetBestFlyOffersUseCase
+import com.example.domain.usecase.GetDepartureDataFromStorageUseCase
 import com.example.domain.usecase.GetMusicalFlyOffersUseCase
+import com.example.domain.usecase.SaveDepartureDataToStorageUseCase
 import com.example.domain.util.Resource
 import com.example.effectivemobiletesttask.presentation.tickets.states.SearchTicketsScreenEvent
 import com.example.effectivemobiletesttask.presentation.tickets.states.SearchTicketsScreenState
@@ -16,7 +18,9 @@ import kotlinx.coroutines.launch
 
 class SearchTicketsViewModel(
     private val getMusicalFlyOffersUseCase: GetMusicalFlyOffersUseCase,
-    private val getBestFlyOffersUseCase: GetBestFlyOffersUseCase
+    private val getBestFlyOffersUseCase: GetBestFlyOffersUseCase,
+    private val getDepartureDataFromStorageUseCase: GetDepartureDataFromStorageUseCase,
+    private val saveDepartureDataToStorageUseCase: SaveDepartureDataToStorageUseCase
 ) : ViewModel() {
 
     private var _uiState = MutableStateFlow(SearchTicketsScreenState())
@@ -26,9 +30,23 @@ class SearchTicketsViewModel(
         when(searchTicketsEvent) {
             SearchTicketsScreenEvent.GetMusicalFlyOffersEvent -> getMusicalFlyOffers()
             SearchTicketsScreenEvent.GetBestFlyOffersEvent -> getBestFlyOffers()
-            is SearchTicketsScreenEvent.DepartureMainEditTextOnTextChangedEvent -> {
-
+            is SearchTicketsScreenEvent.GetDataFromStorageEvent -> {
+                getDepartureFromDataStorage(searchTicketsEvent.key)
             }
+            is SearchTicketsScreenEvent.SaveDataToStorageEvent -> {
+                saveDepartureInDataStorage(searchTicketsEvent.key, searchTicketsEvent.value)
+            }
+        }
+    }
+
+    private fun saveDepartureInDataStorage(key: String, value: String) {
+        saveDepartureDataToStorageUseCase(key, value)
+    }
+
+    private fun getDepartureFromDataStorage(key: String) {
+        val departureValue =  getDepartureDataFromStorageUseCase(key)
+        _uiState.update { searchTicketsScreenState ->
+            searchTicketsScreenState.copy(departureMainText = departureValue)
         }
     }
 

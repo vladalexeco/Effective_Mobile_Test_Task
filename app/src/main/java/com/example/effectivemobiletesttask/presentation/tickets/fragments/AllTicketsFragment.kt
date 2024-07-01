@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.effectivemobiletesttask.R
 import com.example.effectivemobiletesttask.databinding.FragmentAllTicketsBinding
 import com.example.effectivemobiletesttask.presentation.tickets.adapters.AllFlyOfferAdapter
 import com.example.effectivemobiletesttask.presentation.tickets.adapters.decorators.BottomSpaceItemDecoration
@@ -52,6 +54,18 @@ class AllTicketsFragment : Fragment() {
             adapter = allFlyOfferAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             this.addItemDecoration(BottomSpaceItemDecoration(16, requireContext()))
+        }
+
+        binding.allTicketsFilterButtonLinearLayout.setOnClickListener {
+            findNavController().navigate(R.id.action_allTicketsFragment_to_filterTicketsFragment)
+        }
+
+        binding.allTicketsChartButtonLinearLayout.setOnClickListener {
+            Toast.makeText(requireContext(), "You click on Chart Button", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.allTicketsLeftArrowImageView.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         viewModel.onEvent(allTicketsScreenEvent = AllTicketsScreenEvent.GetAllTicketsEvent)

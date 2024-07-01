@@ -3,6 +3,7 @@ package com.example.effectivemobiletesttask.presentation.tickets.fragments
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -51,6 +52,10 @@ class SearchTicketsFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.onEvent(searchTicketsEvent = SearchTicketsScreenEvent.GetDataFromStorageEvent(
+            key = DATA_STORAGE_KEY
+        ))
 
         val bottomSheetBehavior = BottomSheetBehavior.from(binding.searchTicketsBottomSheet)
 
@@ -234,6 +239,42 @@ class SearchTicketsFragment : Fragment() {
         binding.searchTicketsFilterExtraCardView.setOnClickListener {
             findNavController().navigate(R.id.action_searchTicketsFragment_to_filterTicketsFragment)
         }
+
+        binding.searchTicketsDepartureMainEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        })
+
+        binding.searchTicketsArrivalMainEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        })
+
+        binding.searchTicketsSecondaryDepartureEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        })
+
+        binding.searchTicketsSecondaryArrivalEditText.filters = arrayOf(InputFilter { source, start, end, dest, dstart, dend ->
+            for (i in start until end) {
+                if (!source[i].toString().matches("\\p{InCyrillic}+".toRegex())) {
+                    return@InputFilter ""
+                }
+            }
+            null
+        })
         //
 
         viewModel.onEvent(searchTicketsEvent = SearchTicketsScreenEvent.GetMusicalFlyOffersEvent)
@@ -246,7 +287,20 @@ class SearchTicketsFragment : Fragment() {
                 if (state.musicalTicketsList.isNotEmpty()) {
                     getMusicalFlyOffers(state.musicalTicketsList)
                 }
+
+                if (state.departureMainText.isNotEmpty()) {
+                    binding.searchTicketsDepartureMainEditText.setText(state.departureMainText)
+                }
             }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (binding.searchTicketsDepartureMainEditText.text.isNotEmpty()) {
+            viewModel.onEvent(searchTicketsEvent = SearchTicketsScreenEvent.SaveDataToStorageEvent(
+                key = DATA_STORAGE_KEY, value = binding.searchTicketsDepartureMainEditText.text.toString()
+            ))
         }
     }
 
@@ -313,5 +367,6 @@ class SearchTicketsFragment : Fragment() {
     companion object {
         const val DESTINATION_KEY = "destination"
         const val ARRIVAL_KEY = "arrival"
+        const val DATA_STORAGE_KEY = "data_storage_key"
     }
 }
