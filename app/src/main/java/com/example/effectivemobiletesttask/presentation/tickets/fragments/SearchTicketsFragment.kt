@@ -101,6 +101,7 @@ class SearchTicketsFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putString(DESTINATION_KEY, binding.searchTicketsDepartureMainEditText.text.toString())
                 bundle.putString(ARRIVAL_KEY, binding.searchTicketsArrivalMainEditText.text.toString())
+                bundle.putString(DEPARTURE_DATE_KEY, binding.searchTicketsCurrentDateTextView.text.toString())
 
                 findNavController().navigate(R.id.action_searchTicketsFragment_to_allTicketsFragment, bundle)
             }
@@ -368,5 +369,6 @@ class SearchTicketsFragment : Fragment() {
         const val DESTINATION_KEY = "destination"
         const val ARRIVAL_KEY = "arrival"
         const val DATA_STORAGE_KEY = "data_storage_key"
+        const val DEPARTURE_DATE_KEY = "departure date"
     }
 }
